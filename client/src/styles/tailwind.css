@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 400;
+  box-sizing: border-box;
+  position: relative;
+
+  color-scheme: dark;
+  color: #ffffff;
+  background-color: #1e2023;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root,
+html,
+body {
+  height: 100vh;
+}
+
+:fullscreen,
+::backdrop {
+  background-color: #1e2023;
+}
+
+::-webkit-scrollbar {
+  padding: 5px;
+  width: 5px;
+  background-color: transparent;
+}
+/* style of the thumb (the moving part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #a1acbd;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 0rem;
+  width: 0rem;
+}
+
+input[type="range"]::-moz-range-thumb {
+  height: 0rem;
+  width: 0rem;
+}
+
+button {
+  transition: all;
+  transition-duration: 300ms;
+}
+
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.swiper-button-prev {
+  background-image: url(/svg/arrow-left.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.swiper-button-next {
+  background-image: url(/svg/arrow-right.svg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position: center;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  display: none;
+}
+
+.gradient {
+  background: linear-gradient(
+    180deg,
+    rgba(81, 78, 78, 0) 0%,
+    #283647 48.96%,
+    #283647 100%
+  );
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes expandBorder {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-border {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: text-bottom;
+  border: 0.2em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner-border 0.75s linear infinite;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+@-webkit-keyframes spinner-border {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-border {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* SPLIT JS STYLES */
+.gutter {
+  background-color: #1e2023;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.gutter.gutter-horizontal {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==");
+  cursor: col-resize;
+}
+.gutter.gutter-vertical {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAFAQMAAABo7865AAAABlBMVEVHcEzMzMzyAv2sAAAAAXRSTlMAQObYZgAAABBJREFUeF5jOAMEEAIEEFwAn3kMwcB6I2AAAAAASUVORK5CYII=");
+  cursor: row-resize;
+}
+
+/* Spinner */
+.line{
+  height: 3px;
+  width: 150px;
+  background: #e8e8e8;
+}
+
+.line .inner{
+  width: 100%;
+  height: inherit;
+  background: #0098FA;
+  animation: slide 2s ease-in-out infinite;
+}
+
+@keyframes slide{
+  0%{
+    transform-origin: left;
+    transform: scaleX(0.3);
+  }
+  25%{
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  26%{
+    transform-origin: right;
+    transform: scaleX(1);
+  }
+  50%{
+    transform-origin: right;
+    transform: scaleX(0.3);
+  }
+  75%{
+    transform-origin: right;
+    transform: scaleX(1);
+  }
+  76%{
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  100%{
+    transform-origin: left;
+    transform: scaleX(0.3);
+  }
+}
